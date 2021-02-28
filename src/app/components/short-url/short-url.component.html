@@ -1,0 +1,33 @@
+<div class="container mt-4">
+
+    <h1 class="display-5 text-center ">INGRESE LA URL A ACORTAR</h1>
+
+    <div class="row mt-5 mb-4">
+        <div class="col-lg-8">
+            <input type="text" #urlText (keyup)="quitarUrl(urlText.value)" [(ngModel)]="nombreUrl" class="form-control form-control-lg" placeholder="Ingrese la url">
+        </div>
+        <div class="col-lg-4">
+            <button [disabled]="nombreUrl === ''" (click)="procesarUrl()" class="btn btn-primary btn-block btn-lg">ACEPTAR</button>
+        </div>
+    </div>
+
+    <app-spinner *ngIf="loading"></app-spinner>
+
+    <div class="row mt-5" *ngIf="urlProcesada">
+        <div class="col-lg-8">
+            <h4>URL PROCESADA</h4>
+            <div class="form-group ">
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <a ngxClipboard [cbContent]="urlShort" role="button" target="_blank" [href]="urlShort" class="btn btn-dark text-center center" data-toggle="tooltip" title="Ir a Url"><i class="fas fa-external-link-square-alt"></i></a>
+
+                    </div>
+                    <input type="text" disabled [(ngModel)]="urlShort" class="form-control form-control-lg" placeholder="Url procesada...">
+                    <div class="input-group-append">
+                        <button ngxClipboard [cbContent]="urlShort" (click)="copyClipboard()" data-toggle="tooltip" title="Copiar Url" class="btn btn-dark"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

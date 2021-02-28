@@ -1,3 +1,9 @@
+# Aplicación en Firebase Hosting
+
+Aplicación de acortador de URLs desplegada en firebase hosting
+
+https://shorturl-36c53.web.app/
+
 # ShortUrl
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
